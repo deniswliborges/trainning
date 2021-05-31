@@ -23,19 +23,18 @@ public class ProductService {
 				"Objeto não encontrado, Id:" + code + ", Tipo:" + Product.class.getName()));
 	}
 
-	public Product insert(Product obj) {
-		obj.setCode(0);
-		return productrepository.save(obj);
+	public Product insert(Product product) {
+		return productrepository.save(product);
 	}
 
-	public Product update(Product obj) {
-		Product newObj = findCode(obj.getCode());
-		updateData(newObj, obj);
+	public Product update(Product product) {
+		Product newObj = findCode(product.getCode());
+		updateData(newObj, product);
 		return productrepository.save(newObj);
 	}
 
-	public void updateData(Product newObj, Product obj) {
-		newObj.setName(obj.getName());
+	public void updateData(Product newObj, Product product) {
+		newObj.setName(product.getName());
 	}
 
 	public void delet(Integer code) {
@@ -47,6 +46,10 @@ public class ProductService {
 	}
 
 	public Product fromDTO(ProductDTO objDto) {
-		return new Product(objDto.getCode(), objDto.getName(),null);
+		return Product.builder()
+				.code(objDto.getCode())
+				.name(objDto.getName())
+				.costs(objDto.getCosts())
+				.build();
 	}
 }

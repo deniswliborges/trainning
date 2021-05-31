@@ -23,9 +23,9 @@ public class Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Product p1 = new Product(1,"Impressora",123.00);
-		Product p2 = new Product(2,"Mouse",123.00);
-		Product p3 = new Product(3,"Tablet",123.00);
+		Product p1 = Product.builder().name("Impressora").costs(450.00).build();
+		Product p2 = Product.builder().name("Mouse").costs(35.00).build();
+		Product p3 = Product.builder().name("Teclado").costs(40.00).build();
 		
 		productRepository.saveAll(Arrays.asList(p1,p2,p3));
 	
