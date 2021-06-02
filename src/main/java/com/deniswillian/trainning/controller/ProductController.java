@@ -49,7 +49,7 @@ public class ProductController {
 		return ResponseEntity.ok().body(productList);
 				}
 	
-	@RequestMapping(value="/{code}",method=RequestMethod.PUT)
+	
 	@PutMapping("/{code}")
 	public ResponseEntity <Product> update(@Valid @RequestBody ProductDTO productDTO, @PathVariable Integer code) {
 		Product produtc = procuctService.fromDTO(productDTO);
