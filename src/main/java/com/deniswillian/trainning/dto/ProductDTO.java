@@ -1,6 +1,5 @@
 package com.deniswillian.trainning.dto;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.deniswillian.trainning.entity.Product;
